@@ -14,12 +14,18 @@ class CreateOfertasTable extends Migration
     public function up()
     {
         Schema::create('ofertas', function (Blueprint $table) {
-            $table->id();
-            $table->timestamp('fechaTentativa');
-            $table->timestamp('fechaContacto');
-            $table->int('usuario');
+            $table->increments('id');
+            $table->timestamp('fechaTentativa')->nullable();
+            $table->timestamp('fechaContacto')->nullable();
             $table->text('descripAcuerdo');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
+
+            $table->unsignedInteger('usuario')->nullable();
+            $table->foreign('usuario')->references('id')->on('users')->onDelete('cascade');
+
+            $table->unsignedInteger('idCliente')->nullable();
+            $table->foreign('idCliente')->references('id')->on('clientes')->onDelete('cascade');
         });
     }
 
