@@ -58,10 +58,13 @@
 
 
 <!-- Estado Field -->
-<div class="form-group col-sm-12">
+<div class="form-group col-sm-6">
     {!! Form::label('estado', 'Estado', ['class' => 'form-check-label']) !!}
     <label class="form-check">
-    {!! Form::radio('estado', "", null, ['class' => 'form-check-input']) !!} 
+    {{-- {!! Form::radio('estado', "", null, ['class' => 'form-check-input']) !!} --}}
+    {!! Form::select('estado', ['1' => 'Activo', '0' => 'Inactivo'], null, ['class' => 'form-control custom-select']) !!} 
 </label>
+
+    
 
 </div>

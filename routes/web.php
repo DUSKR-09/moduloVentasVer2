@@ -38,3 +38,12 @@ Route::post(
 )->name('io_generator_builder_generate_from_file');
 
 Route::resource('clientes', App\Http\Controllers\ClientesController::class);
+
+
+Route::resource('processingSessions', App\Http\Controllers\ProcessingSessionController::class);
+
+
+Route::resource('processingSessions', App\Http\Controllers\ProcessingSessionController::class);
+
+
+Route::resource('processingSessions', App\Http\Controllers\ProcessingSessionController::class);
