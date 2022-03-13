@@ -34,6 +34,8 @@ class ProcessingSessionController extends AppBaseController
      */
     public function index(Request $request)
     {
+        $prueba = [];
+        $cliente = [];
         /* $processingSessions = $this->processingSessionRepository->all(); */
 /*         $prueba = User::findOrFail($processingSessions->usuario);
         $prueba->usuario; */
