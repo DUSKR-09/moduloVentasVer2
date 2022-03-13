@@ -7,7 +7,8 @@ use App\Http\Requests\UpdateClientesRequest;
 use App\Repositories\ClientesRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
-use Flash;
+/* use Flash; comentado para corregir ruta, añadiendo nueva ruta de imporatción */
+use Laracasts\Flash\Flash;
 use Response;
 
 class ClientesController extends AppBaseController
@@ -123,7 +124,7 @@ class ClientesController extends AppBaseController
 
         $clientes = $this->clientesRepository->update($request->all(), $id);
 
-        Flash::success('Clientes updated successfully.');
+        Flash::success('Cliente actualizado con exito!.');
 
         return redirect(route('clientes.index'));
     }
