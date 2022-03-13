@@ -13,7 +13,9 @@
 <!-- Usuario Field -->
 <div class="col-sm-12">
     {!! Form::label('usuario', 'Usuario:') !!}
-    <p>{{ $prueba->name }}</p>
+    {{-- <p>{{ $prueba->name }}</p> --}}
+{{--     <p>{{ $usuario->id }}</p> --}}
+    <p>{{ $usuario->name }}</p>
 </div>
 
 <!-- Descripacuerdo Field -->
@@ -25,6 +27,6 @@
 <!-- Idcliente Field -->
 <div class="col-sm-12">
     {!! Form::label('idCliente', 'Idcliente:') !!}
-    <p>{{ $processingSession->idCliente }}</p>
+    <p>{{ $cliente->nombres }}</p>
 </div>
 

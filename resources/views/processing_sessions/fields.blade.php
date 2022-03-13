@@ -7,7 +7,7 @@
 @push('page_scripts')
     <script type="text/javascript">
         $('#fechaTentativa').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm:ss',
+            format: 'YYYY-MM-DD',
             useCurrent: true,
             sideBySide: true
         })
@@ -23,7 +23,7 @@
 @push('page_scripts')
     <script type="text/javascript">
         $('#fechaContacto').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm:ss',
+            format: 'YYYY-MM-D',
             useCurrent: true,
             sideBySide: true
         })
@@ -49,9 +49,24 @@
     {!! Form::label('idCliente', 'Idcliente:') !!}
     <select name = idCliente>
         {{-- <option value="default">prueba</option> --}}
-        @foreach ($cliente as $cli)
-        <option value="{{$cli->id}}">{{$cli->nombres}}</option>
-        @endforeach
+        @if($edit == 1){
+            <option value="{{$cli->id}}">{{$cli->nombres}}</option>
+            
+                @foreach ($cliente as $clients)
+                @if($cli->id != $clients->id){
+                    <option value="{{$clients->id}}">{{$clients->nombres}}</option>
+                }
+                @endif
+                @endforeach
+            }
+            
+        @else{
+            @foreach ($cliente as $clients)
+            
+            <option value="{{$clients->id}}">{{$clients->nombres}}</option>
+            @endforeach
+            }
+        @endif
     </select>
     {{-- {!! Form::number('idCliente', null, ['class' => 'form-control']) !!} --}}
     {{-- {!! Form::select('cliente', [{{$cliente->id}} => {{@cliente->nombres}}, '0' => 'Inactivo'], null, ['class' => 'form-control custom-select']) !!} --}}

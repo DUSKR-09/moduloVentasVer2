@@ -21,7 +21,7 @@
                 ?>
                 <td>{{ $prueba[$test]->name }}</td>
             <td>{{ $processingSession->descripAcuerdo }}</td>
-            <td>{{ $processingSession->idCliente }}</td>
+            <td>{{ $cliente[$test]->nombres }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['processingSessions.destroy', $processingSession->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

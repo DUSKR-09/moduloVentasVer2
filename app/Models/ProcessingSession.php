@@ -50,8 +50,8 @@ class ProcessingSession extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'fechaTentativa' => 'datetime',
-        'fechaContacto' => 'datetime',
+        'fechaTentativa' => 'date',
+        'fechaContacto' => 'date',
         'usuario' => 'integer',
         'descripAcuerdo' => 'string',
         'idCliente' => 'integer'

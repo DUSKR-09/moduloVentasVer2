@@ -46,6 +46,10 @@ class ProcessingSessionController extends AppBaseController
             $prueba[$i] = User::findOrFail($processingSessions[$i]->usuario);
             /* $prueba->usuario; */
         }
+        for($i=0; $i<sizeof($processingSessions); $i++){
+            $cliente[$i] = Clientes::findOrFail($processingSessions[$i]->idCliente);
+            /* $prueba->usuario; */
+        }
 
 /*         $ProcessingSession = $this->processingSessionRepository->all();
         $usr = $ProcessingSession->usuario;
@@ -56,7 +60,7 @@ class ProcessingSessionController extends AppBaseController
 
 /*         return view('processing_sessions.index')
             ->with('processingSessions', $processingSessions); */
-        return view('processing_sessions.index', compact('prueba', 'processingSessions'));
+        return view('processing_sessions.index', compact('cliente', 'prueba', 'processingSessions'));
     }
 
     /**
@@ -71,7 +75,11 @@ class ProcessingSessionController extends AppBaseController
         /* $cliente = $this->processingSessionRepository->find(2); */
         /* return view('processing_sessions.create'); */
         /* return view('processing_sessions.fields', compact('cliente')); */
-        return view('processing_sessions.create')->with('cliente', $cliente);
+        $edit = 0;
+        /* $cli = 0; */
+        $cli = Clientes::all();
+        /* return view('processing_sessions.create')->with('cliente', $cliente); */
+        return view('processing_sessions.create', compact('cliente', 'edit', 'cli'));
     }
 
     /**
@@ -102,17 +110,23 @@ class ProcessingSessionController extends AppBaseController
      */
     public function show($id)
     {
+        $processingSessions=ProcessingSession::all();
         $processingSession = $this->processingSessionRepository->find($id);
-        $usuario = User::find($id);
+        $usuario = User::find($processingSession->usuario);
+        $cliente = Clientes::find($processingSession->idCliente);
         
         if (empty($processingSession)) {
             Flash::error('Processing Session not found');
 
             return redirect(route('processingSessions.index'));
-        }
+         }
+/*        for($i=0; $i<sizeof($processingSessions); $i++){
+            $prueba[$i] = User::findOrFail($processingSessions[$i]->usuario);
+        } */
 
         /* return view('processing_sessions.show')->with('processingSession', $processingSession, 'usuario', $usuario); */
-        return view('processing_sessions.show', compact('usuario', 'processingSession'));
+        /* return view('processing_sessions.show', compact('usuario', 'processingSession')); */
+        return view('processing_sessions.show', compact('cliente', 'usuario', 'processingSession', 'processingSessions'));
     }
 
     /**
@@ -125,6 +139,13 @@ class ProcessingSessionController extends AppBaseController
     public function edit($id)
     {
         $processingSession = $this->processingSessionRepository->find($id);
+        $ofertas = 1;
+        /* $cliente = Clientes::all(); */
+        $cli = Clientes::findOrFail($processingSession->idCliente);
+        /* $cli->id; */
+        $cliente = Clientes::all();
+        $edit = 1;
+        /* return view('processing_sessions.create')->with('cliente', $cliente); */
 
         if (empty($processingSession)) {
             Flash::error('Processing Session not found');
@@ -132,7 +153,8 @@ class ProcessingSessionController extends AppBaseController
             return redirect(route('processingSessions.index'));
         }
 
-        return view('processing_sessions.edit')->with('processingSession', $processingSession);
+        /* return view('processing_sessions.edit')->with('processingSession', $processingSession); */
+        return view('processing_sessions.edit', compact('edit', 'cli', 'cliente', 'processingSession', 'ofertas'));
     }
 
     /**
