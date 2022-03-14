@@ -22,13 +22,12 @@ class ProcessingSessionFactory extends Factory
     public function definition()
     {
         return [
-        'fechaTentativa' => $this->faker->date('Y-m-d H:i:s'),
-        'fechaContacto' => $this->faker->date('Y-m-d H:i:s'),
+        'fechaTentativa' => $this->faker->dateTimeBetween('+0 days', '+1 year'),
+        'fechaContacto' => $this->faker->dateTimeBetween('+0 days', '+0 days'),
         'usuario' => $this->faker->numberBetween(1, 3),
         'descripAcuerdo' => $this->faker->text,
         'created_at' => $this->faker->date('Y-m-d H:i:s'),
         'updated_at' => $this->faker->date('Y-m-d H:i:s'),
-        'deleted_at' => $this->faker->date('Y-m-d H:i:s'),
         'idCliente' => $this->faker->numberBetween(1, 13)
         ];
     }
