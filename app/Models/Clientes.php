@@ -4,6 +4,7 @@ namespace App\Models;
 
 /* use Eloquent as Model; */
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 
 
@@ -24,7 +25,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Clientes extends Model
 {
-
+    use HasFactory;
 
     public $table = 'clientes';
     

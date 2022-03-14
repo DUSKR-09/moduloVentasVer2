@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\ProcessingSession;
+use App\Models\Clientes;
 use Illuminate\Database\Seeder;
 
-class ProcessingSessionsTableSeeder extends Seeder
+class ClientesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class ProcessingSessionsTableSeeder extends Seeder
      */
     public function run()
     {
-        ProcessingSession::factory(10)->create();
+        Clientes::factory(10)->create();
     }
 }
