@@ -87,9 +87,9 @@ class ProductoController extends AppBaseController
      */
     public function show($id)
     {
-        $productos = Producto::all();
+        /* $productos = Producto::all(); */
         $producto = $this->productoRepository->find($id);
-        $tProd = TipoProducto::find($productos->tipoProd);
+        $tProd = TipoProducto::find($producto->tipoProd);
 
         if (empty($producto)) {
             Flash::error('Producto not found');
@@ -98,7 +98,7 @@ class ProductoController extends AppBaseController
         }
 
         /* return view('productos.show')->with('producto', $producto); */
-        return view('productos.show', compact('productos', 'producto', 'tprod'));
+        return view('productos.show', compact('producto', 'tProd'));
     }
 
     /**

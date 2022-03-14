@@ -7,6 +7,6 @@
 <!-- Tipoprod Field -->
 <div class="col-sm-12">
     {!! Form::label('tipoProd', 'Tipoprod:') !!}
-    <p>{{ $tprod->nombre }}</p>
+    <p>{{ $tProd->nombre }}</p>
 </div>
 

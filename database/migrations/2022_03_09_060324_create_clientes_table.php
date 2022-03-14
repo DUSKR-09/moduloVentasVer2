@@ -23,6 +23,7 @@ class CreateClientesTable extends Migration
             $table->string('apellido1');
             $table->string('apellido2');
             $table->char('sexo');
+            $table->timestamp('deleted_at')->nullable();
             $table->boolean('estado')->nullable();
             $table->timestamps();
         });

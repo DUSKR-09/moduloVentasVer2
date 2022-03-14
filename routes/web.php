@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,21 @@ Route::resource('processingSessions', App\Http\Controllers\ProcessingSessionCont
 
 
 Route::resource('processingSessions', App\Http\Controllers\ProcessingSessionController::class);
+
+
+Route::resource('tipoProductos', App\Http\Controllers\TipoProductoController::class);
+
+
+Route::resource('tipoProductos', App\Http\Controllers\TipoProductoController::class);
+
+
+Route::resource('productos', App\Http\Controllers\ProductoController::class);
+
+
+
+
+
+
+
+
+Route::resource('contratos', App\Http\Controllers\ContratosController::class);
